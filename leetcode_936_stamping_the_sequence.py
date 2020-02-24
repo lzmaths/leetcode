@@ -1,15 +1,19 @@
 class Solution:
     def movesToStamp(self, stamp: str, target: str) -> List[int]:
+        """
+        https://www.acwing.com/solution/LeetCode/content/4964/
+        """
         stamp_len, target_len = len(stamp), len(target)
         total = 0
         seen = [False] * target_len
+        target_list = list(target)
         ans = []
         while total < target_len:
             flag = False
             for i in range(target_len - stamp_len + 1):
                 if seen[i]:
                     continue
-                matched_len = self.check(stamp, target, i)
+                matched_len = self.check(stamp, target_list, i)
                 if matched_len == 0:
                     continue
                 seen[i] = True
@@ -18,7 +22,7 @@ class Solution:
                 flag = True
             if not flag:
                 break
-        return ans[::-1]
+        return ans[::-1] if total == target_len else []
                 
         
         
