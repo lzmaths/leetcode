@@ -20,9 +20,9 @@ class Horse(object):
         return -1 if max(counts) != 0 else ans
 
 horse = Horse()
-print(horse.countHorse("neineighghneigh"))
-print(horse.countHorse("neineighghneighn"))
-print(horse.countHorse("neineighghnigh"))
+print(horse.countHorse("neineighghneigh")) # expect 3
+print(horse.countHorse("neineighghneighn")) # expect -1
+print(horse.countHorse("neineighghnigh")) # expect -1
 
 
 
