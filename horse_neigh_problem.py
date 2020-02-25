@@ -11,18 +11,16 @@ class Horse(object):
         for idx, ch in enumerate(s):
             counts[dic[ch]] += 1
             if ch == 'n':
-                ans += 1
+                ans = max(ans, counts[0])
             else:
                 if counts[dic[ch]-1] < counts[dic[ch]]:
                     return -1
                 if ch == 'h':
                     counts = [num-1 for num in counts]
+                    
         return -1 if max(counts) != 0 else ans
 
 horse = Horse()
-print(horse.countHorse("neineighghneigh")) # expect 3
+print(horse.countHorse("neineighghneigh")) # expect 2
 print(horse.countHorse("neineighghneighn")) # expect -1
 print(horse.countHorse("neineighghnigh")) # expect -1
-
-
-
